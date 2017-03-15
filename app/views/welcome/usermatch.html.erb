@@ -1,0 +1,35 @@
+<% if current_user.users != nil %>
+  <% user_matches = [] %>
+  <% current_user.users.each do |user| %>
+  <% if current_user.id != user.id %>
+    <% if user_matches.include? user %>
+    <% else %>
+      <% user_matches << user %>
+    <% end %>
+  <% end %>
+<% end %>
+<% end %>
+
+<nav class="fixed-nav-bar">
+  <span class="navbarlogo_mainprof">Relicious</span>
+  <ul class="mainprof">
+  <li><%= link_to "Home",profiles_path %></li>
+  <li><%= link_to "Messages", mailbox_inbox_path%></li>
+  <li><%= link_to "Search" , restaurants_show_path%></li>
+  <li><%= link_to "Log Out", destroy_user_session_path, method: :delete%></li>
+  <li><%= link_to "Matches", welcome_usermatch_path %></li>
+  </ul>
+</nav>
+<!-- Unique users from loop above  -->
+<% user_matches.each do |user| %>
+<div class="wrap">
+  <div class="tile">
+  <%= image_tag user.profile.avatar.url(:medium) %>
+    <div class="text">
+  <h1><%= user.profile.username%></h1>
+  <h2 class="animate-text">  <%= user.profile.bio%></h2>
+  <p class="animate-text"><%= user.profile.age %>
+  <%= user.profile.gender %>
+  <% user.profile.gender_pref %></p>
+
+<% end %>

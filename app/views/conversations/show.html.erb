@@ -1,34 +1,71 @@
-<div class="row">
-  <div class="spacer"></div>
-  <div class="col-md-12">
-    <%= link_to "Compose", new_conversation_path, class: "btn btn-success" %>
-    <div class="spacer"></div>
-  </div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<%= stylesheet_link_tag "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" %>
+<nav class="fixed-nav-bar">
+  <span class="navbarlogo">Relicious</span>
+  <ul>
+  <li><%= link_to "Home" , profiles_path %></li>
+  <li><%= link_to "Messages", mailbox_inbox_path%></li>
+  <li><%= link_to "Search", restaurants_show_path %></li>
+  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+  </ul>
+</nav>
 
-  <div class="col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <%= render 'mailbox/folders' %>
-      </div>
-    </div>
-  </div>
+<div class="parallax">
 
-  <div class="col-md-8">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= render partial: 'messages' %>
-        </div>
-        <div class="panel-footer">
-          <!-- Reply Form -->
+
+  <div class="col-md-8_usermssg">
+    <div class ="userconvobuttons">
+      <!-- <%= link_to "Inbox", mailbox_inbox_path, class: "btn btn-warning composebut"  %> -->
+    <%= link_to 'Delete', trash_conversation_path(conversation), class: 'btn btn-danger trashbut', method: :post,
+              data: {confirm: 'Are you sure?'} %>
+            </div>
+            <%= link_to "Inbox", mailbox_inbox_path, class: "btn btn-warning composebut"  %>
+      <div class="panel">
+
+        <div class="panel-bodyuser">
+          <!-- <% render 'showmessbuttons.html.erb' %> -->
+
+          <% fake_receipts = [] %>
+          <% @receipts.each do |receipt| %>
+            <% if fake_receipts.include? receipt.message %>
+            <% else %>
+              <% fake_receipts << receipt.message %>
+            <% end %>
+          <% end %>
+          <% fake_receipts.each do |receipt| %>
+            <div class="media">
+              <div class="media-left">
+                <!-- user avators can go here -->
+                <!-- <a href="#"> -->
+                  <%= image_tag (User.find_by(id: receipt.sender_id).profile.avatar.url(:thumb)) %>
+                <!-- </a>
+              </div> -->
+              <div class="media-body">
+                <h4 class="media-heading">
+                  <%= receipt.sender.email %> <br>
+                  <small><b>Subject: </b><%= receipt.subject %></small><br>
+                  <small><b>Date: </b><%=  receipt.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
+                </h4>
+                <%= receipt.body %>
+              </div>
+            </div>
+        <% end %>
+
+
+        <div class="usermessagebox">
           <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
               <div class="form-group">
                 <%= f.text_area :body, placeholder: "Reply Message", rows: 4, class: "form-control" %>
               </div>
               <%= f.submit "Reply", class: 'btn btn-danger pull-right' %>
           <% end %>
-          <div class="clearfix"></div>
+
         </div>
       </div>
     </div>
-
+</div>
+</div>
+</div>
 </div>

@@ -4,12 +4,34 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-gem 'hirb'
-gem 'chosen-rails'
-gem 'devise'
-gem 'mailboxer'
-gem 'omniauth-facebook'
 
+gem 'jquery-rails'
+#scss writing family
+gem 'compass'
+#Haml is a templating engine for HTML
+gem 'haml-rails'
+#Amazon webservices
+gem 'aws-sdk'
+#Handles image attachments
+gem 'paperclip'
+# Hiding our api keys with a .env file wtih dotenv-rails
+gem 'dotenv-rails'
+#Hirb prettifies Database queries in Rails-c for us
+gem 'hirb'
+#Chosen-rails gives .select features might remove was used in compose section of mailbox
+gem 'chosen-rails'
+# Devise for user authentication and encryption/sign in / ip etc related features
+gem 'devise'
+# Allows models to communicate between each-other tracks messages between users and unread counter etc
+gem 'mailboxer'
+# Facebook authentication that works with devise
+gem 'omniauth-facebook'
+# Using it to create pdf's of our Entity relationship diagrams
+gem "rails-erd"
+#Normalizes our css to a blank slate
+gem 'normalize-rails'
+# Httpary to do Api requests and get .parsed response
+gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record

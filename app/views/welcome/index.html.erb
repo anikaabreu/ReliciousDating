@@ -1,4 +1,15 @@
-<h1 class="logo">Relicious</h1>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <% flash.each do |key, value| %>
+    <div class="text-center <%= flash_class(key) %>">
+      <%= value %>
+    </div>
+    <% end %>
+
+<h1 class="reliciouslogotag">Relicious</h1>
 <!-- <%= video_tag "coffee
 .mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video/mp4" %> -->
 <!-- <%= video_tag "coffee.mp4", controls: false, autoplay: true, loop: true, muted: true %> -->
@@ -6,21 +17,53 @@
 <%= video_tag "coffee.mp4", controls: false, autoplay: true, loop: true %>
 <h1>where food meets love</h1>
 <div class="signupmainbox">
-  <!-- <a id="linkdecomainpage1" class="hvr-float" href="#" src="registertext">Register</a>
-  <a id="linkdecomainpage2" class= "hvr-float" href="#" src="logintext">Login</a> -->
-  <!-- <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=629177267279104";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-  <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div> -->
-  <!-- <div scope= "email" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
-</div>
-<p> </p>
-  -->
+		<div id="cd-logo"></div>
+    <!-- lOG IN Modal button -->
+    <button type="button" class="hvr-float cd-signup unstylebutton" id='linkdecomainpage2' data-toggle="modal" data-target="#modal-transparent">
+  Log In
+</button>
+<button type="button" class="hvr-float cd-signup unstylebutton" id='linkdecomainpage1' data-toggle="modal" data-target="#modal-transparent_register">
+Register
+</button>
+    <!-- Modal -->
+    <div class="modal modal-transparent fade" id="modal-transparent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Hi there, good to see you</h4>
+      </div>
+      <div class="modal-body">
+          <%= render './devise/sessions/newlogin.html.erb' %>
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
   </div>
 </div>
-<%= link_to "Signout", destroy_user_session_path, method: :delete %>
+</div>
+<!-- REGISTER MODAL -->
+
+<!-- Modal -->
+<div class="modal modal-transparent_register fade" id="modal-transparent_register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title" id="myModalLabel">Here begins your path to happily ever after</h4>
+  </div>
+  <div class="modal-body">
+    <%= render './devise/registrations/new.html.erb' %>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</div>
+</div>
+</div>
+  </nav>
+  </div>
+</div>
+<footer>
+<a href="/welcome/aboutus" class="hvr-float unstylebutton">
+About Us
+</div></footer>

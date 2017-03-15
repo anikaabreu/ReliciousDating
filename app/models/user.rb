@@ -3,9 +3,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable , :omniauthable
+  # Paperclip Devise
+  has_attached_file :avatar, styles: { medium: "300x300", thumb: "100x100" }
+  validates_attachment_content_type :avatar, content_type: /\Aimage/
+
 
   has_many :identities
-
+  has_one :profile
+  has_many :matches
+  has_many :restaurants, through: :matches
+  has_many :users, through: :restaurants
   acts_as_messageable
 
   def mailboxer_name

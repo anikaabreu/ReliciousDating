@@ -23,8 +23,10 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
-
+  config.assets.compile = true
+  # config.assets.paths << Rails.root.join('/app/assets/videos')
+  # config.assets.paths << Rails.root.join('/app/assets/fonts')
+  # config.assets.paths << Rails.root.join('/app/assets/stylesheets')
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
@@ -70,7 +72,7 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-
+  Rails.application.config.assets.precompile += %w( main.scss main.js)
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
@@ -80,7 +82,16 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
-
+  config.paperclip_defaults = {
+      storage: :s3,
+      s3_region: ENV["AWS_REGION"],
+      s3_credentials: {
+        s3_host_name: ENV["AWS_S3_HOST_NAME"],
+        bucket: ENV["S3_BUCKET_NAME"],
+        access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+        secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+        }
+      }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

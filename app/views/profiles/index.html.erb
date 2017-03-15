@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+<link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=League+Script" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet">
+
+<nav class="fixed-nav-bar">
+  <span class="navbarlogo">Relicious</span>
+  <ul class="mainprof">
+  <li><%= link_to "Home" , profiles_path %></li>
+  <li><%= link_to "Messages", mailbox_inbox_path%></li>
+  <li><%= link_to "Search", restaurants_show_path %></li>
+  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+  <li><%= link_to "Matches", welcome_usermatch_path %></li>
+  </ul>
+</nav>
+
+</div>
+<div class="profilebackground">
+
+    <p id="lovequoteprofile"> "Food is symbolic of love when words are inadequate." —A lan D. Wolfelt</p>
+
+</div>
+
+<div class="profilemainbody">
+  <div class="profilemainnavbar">
+
+  </div>
+  <div class="profilemaininfo">
+    <div class="wrapper">
+  <div class="wrapper-inner">
+    <div class="box-wrapper">
+      <div class="box">
+        <div class="avatar">
+          <%= image_tag(current_user.profile.avatar.url(:thumb)) %>
+        </div>
+        <div class="box-inner">
+          <h3 class="name"><%= current_user.profile.username%></h3>
+          <h4 class="occupation"><%=current_user.profile.gender%></h4>
+          <p class="location"><i class="fa fa-map-marker"></i><%= current_user.profile.age%></p>
+          <h3 class="followers-title"><%= current_user.profile.bio %></h3>
+
+        </div>
+        <ul class="social-list">
+          <li><%= link_to "Home" , profiles_path,class: "fa fa-facebook" %></li>
+          <li><%= link_to "Messages", mailbox_inbox_path, class:"fa fa-facebook" %></li>
+          <li><%= link_to "Matches", welcome_usermatch_path,class: "fa fa-facebook" %></li>
+          <li><a href="#" class="fa fa-dribbble">Change Photo</a></li>
+          <li><%= link_to "Edit Bio","http://localhost:3000/profiles/#{current_user.profile.id}" ,class:"fa fa-pinterest" %></li>
+          <li><a href="#" class="fa fa-linkedin">See Profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- <h1>Profile Info Header</h1>
+    <p>Bio</p>
+    <p>User Info
+    </p> -->
+    <div class="profileshowmatches">
+      <div class="matchesdiv">
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

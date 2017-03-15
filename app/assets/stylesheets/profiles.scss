@@ -1,0 +1,508 @@
+// Place all the styles related to the Profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+	font-family: 'Isabella Script';
+	src: font-url("Isabella_Script.woff");
+}
+
+@font-face {
+	font-family: 'Raleway';
+	src: font-url("raleway.woff");
+}
+
+//////////LANDING PAGE NEW.HTML/////////////
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-img,
+.overlay:before {
+  background:
+   url('http://s3-us-west-1.amazonaws.com/prod-biut/wp-content/uploads/2015/12/23115654/helado5.jpg')
+   no-repeat fixed 0 0 / cover;
+
+
+}
+// https://cdn.shutterstock.com/shutterstock/videos/8891473/thumb/1.jpg
+
+.bg-img {
+  margin: 0 auto;
+  padding: 40px 20px 0 0;
+  height: 100vh;
+  width: 160vh;
+  // align-items: center;
+  // display: flex;
+  // justify-content: center;
+}
+
+.overlay {
+  height: 80vh;
+  margin: 0 auto;
+  width: 55vw;
+  overflow: hidden;
+  padding: 50px;
+  position: relative;
+  color: white;
+  font-family: 'Lato';
+  position: relative;
+  text-align: center;
+  z-index: 0;
+  &:before {
+    content: '';
+    filter: blur(20px);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+
+.donut {
+	height: 143px;
+	padding: 20px;
+	width: 159px;
+}
+
+.donut:hover {
+	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+h1 {
+  margin: 50px;
+}
+
+#welcome {
+  font-size: 3.5em;
+}
+
+#welcometxt {
+  font-size: 25px;
+  margin: 20px;
+
+}
+
+
+.formformatstyle {
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'Raleway';
+  text-align: center;
+// font-size: 2em;
+}
+
+// $color: #B6D276;
+
+#profile_gender {
+  // background-color: #B6D276;
+  width: 50vh;
+  height: 6vh;
+  font-size: 16px;
+  font-family: 'Raleway';
+}
+
+#profile_gender_pref {
+  width: 50vh;
+  height: 6vh;
+  font-size: 16px;
+  font-family: 'Raleway';
+}
+
+#profile_age {
+  width: 50vh;
+  height: 5.4vh;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: 'Raleway';
+}
+
+#profile_username {
+	width: 50vh;
+  height: 5.4vh;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: 'Raleway';
+}
+
+#profile_bio {
+	width: 50vh;
+  height: 5.4vh;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: 'Raleway';
+}
+
+//////CURRENT USER PROFILE PAGE///////////////
+
+body {
+  font-family: 'Raleway';
+  padding: 0;
+  margin: 0 auto;
+
+}
+
+.profilebackground {
+  // background-image: url('http://covermyfb.com/media/covers/kFMasYcBvOeazj3B.jpg');
+	background-image: url('./LOVEwatermelon.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #D6FFA7;
+  height: 70vh;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+	overflow-x: hidden;
+
+}
+
+
+#lovequoteprofile {
+  color: white;
+  width: 100%;
+  padding:170px 0 0 90px;
+  font-size: 50px;
+  font-family: 'Parisienne', cursive;
+}
+
+
+/////////////////////////////////////// USER CARD
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100);
+body,
+html,
+.wrapper {
+  height: 50%;
+  width: 100%;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #404040;
+}
+.wrapper {
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0, #62075c), color-stop(1, #c30eb8));
+  background: -webkit-linear-gradient(left bottom, #62075c 0, #c30eb8 100%);
+  background: -moz-linear-gradient(left bottom, #62075c 0, #c30eb8 100%);
+  background: -o-linear-gradient(left bottom, #62075c 0, #c30eb8 100%);
+  background: -ms-linear-gradient(left bottom, #62075c 0, #c30eb8 100%);
+  background: linear-gradient(left bottom, #62075c 0, #c30eb8 100%);
+  position: relative;
+  z-index: 1;
+}
+.wrapper:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("http://remtsoy.com/experiments/user_card/img/food.png");
+  z-index: 2;
+  opacity: 0.3;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  filter: alpha(opacity=30);
+}
+.wrapper-inner {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+}
+.box-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin-top: 40px;
+  z-index: 1;
+}
+.box {
+  position: relative;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 4px 1px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 1px rgba(0,0,0,0.1);
+  width: 380px;
+  background: #fff;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 105px;
+}
+.box-inner {
+  padding: 30px;
+	overflow: hidden;
+}
+.avatar {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0 3px #c30eb8 , 0 0 0 8px #fff;
+  box-shadow: 0 0 0 3px #c30eb8 , 0 0 0 8px #fff;
+	top: -97px;
+  margin-left: -135px;
+  left: 235px;
+  position: absolute;
+}
+.avatar img {
+  padding: 43px;
+  width: 184px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  display: block;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.name,
+.followers-title {
+  font-size: 17px;
+  font-weight: 100;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 2px;
+  color: #3a3a3a;
+}
+.occupation {
+  font-size: 18px;
+  font-style: italic;
+  color: #707070;
+  margin-bottom: 2px;
+}
+.location {
+  color: #b3b3b3;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.location .fa {
+  color: #c6c6c6;
+  margin-right: 4px;
+}
+.followers-title {
+  font-size: 17px;
+  color: #666;
+  margin-bottom: 5px;
+}
+.followers-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-bottom: 5px;
+  display: table;
+  margin: 0 auto;
+}
+.followers-list > li {
+  display: block;
+  float: left;
+  margin: 0 5px;
+}
+.followers-list > li a {
+  display: block;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  height: 45px;
+  width: 45px;
+  text-decoration: none;
+}
+.followers-list > li a img {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 45px;
+  display: block;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  height: 45px;
+}
+.followers-list > li a:hover img {
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+}
+.followers-list > li.follow-list-item a {
+  background: #4d4d4d;
+  color: #fff;
+}
+.followers-list > li.follow-list-item a:hover {
+  background: #c30eb8;
+}
+.followers-list > li.follow-list-item .fa-plus {
+  display: block;
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+}
+.social-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-top: 1px;
+  display: table;
+  margin: 0 auto;
+}
+.social-list > li {
+  float: left;
+  display: block;
+}
+.social-list > li > a {
+  display: block;
+  width: 120px;
+  height: 55px;
+  line-height: 55px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #b3b3b3;
+  border-right: 1px solid #ededed;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  transition: 0.2s;
+}
+.social-list > li > a:hover {
+  background: #c30eb8;
+  color: #fff;
+}
+.social-list > li > a:hover.fa-facebook {
+  background: #ff3800;
+}
+.social-list > li > a:hover.fa-dribbble {
+  background: #c32361;
+}
+.social-list > li > a:hover.fa-twitter {
+  background: #43deef;
+}
+.social-list > li > a:hover.fa-pinterest {
+  background: #cd2129;
+}
+.social-list > li > a:hover.fa-linkedin {
+  background: #1683bc;
+}
+.social-list > li:last-child > a {
+  border-right: none;
+}
+
+
+
+
+
+
+
+
+
+//////////////NAV BAR///////////////////////////
+.navbarlogo_mainprof {
+  font-family: 'Isabella Script';
+  color: white;
+  font-size: 61px;
+  padding: 7px 10px 15px;
+
+}
+
+.fixed-nav-bar_mainprof {
+  color: white;
+  display:inline-flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  // width: 100%;
+	max-width: 100%;
+  height: 70px;
+  background-color: #A5DE6D;
+  text-align: center;
+}
+
+ul.mainprof {
+	padding: 33px;
+  position: relative;
+  left: 193px;
+}
+
+.fixed-nav-bar_mainprof ul {
+  color: white;
+  font-family: 'Raleway';
+  font-size: 25px;
+  list-style-type: none;
+  margin: 0;
+	padding: 33px;
+  position: relative;
+  left: 195px;
+ }
+
+.fixed-nav-bar li {
+  display: inline-block;
+  text-align: center;
+  color: white;
+  // border-right: solid 1px white;
+  padding: 0 5px;
+}
+.fixed-nav-bar a:visited {
+  color: white;
+}
+  .fixed-nav-bar li:last-child {
+    border-right: none;
+  }
+
+.fixed-nav-bar a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 30px;
+}
+
+  .fixed-nav-bar a:hover {
+    background-color: #A5DE6D;
+    color: #F16B6F; }
