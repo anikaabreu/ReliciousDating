@@ -1,24 +1,5 @@
-# README
+Relicious
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A web application built to match singles based on restaurants in the area that they favorite.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Built in 8 days on Ruby on Rails framework. 
